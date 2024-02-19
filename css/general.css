@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --color-grass: #9bcc50;
+    --color-fire: #fd7d24;
+    --color-water: #4592c4;
+    --color-bug: #729f3f;
+    --color-normal: #a4acaf;
+    --color-poison: #b97fc9;
+    --color-electric: #eed535;
+    --color-ground: #625814;
+    --color-fighting: #d56723;
+    --color-psychic: #f366b9;
+    --color-rock: #5b5b5b;
+    --color-ghost: #7b62a3;
+    --color-dark: #333333;
+    --color-ice: #51c4e7;
+    --color-steel: #95aaaa;
+    --color-fairy: #fdb9e9;
+    --color-dragon: #f16e57;
+    --color-flying: #e6e6e6;
+}
+header{
+    position: fixed;
+    top: 0;
+    background-color: antiquewhite;
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding-left: 50px;
+}
+main{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+section{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+footer{
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100vw;
+    background-color: antiquewhite;
+}

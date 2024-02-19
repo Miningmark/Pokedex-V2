@@ -4,28 +4,67 @@
 }
 
 :root{
-    --color-grass: #9bcc50;
-    --color-fire: #fd7d24;
-    --color-water: #4592c4;
-    --color-bug: #729f3f;
-    --color-normal: #a4acaf;
-    --color-poison: #b97fc9;
-    --color-electric: #eed535;
-    --color-ground: #625814;
-    --color-fighting: #d56723;
-    --color-psychic: #f366b9;
-    --color-rock: #5b5b5b;
-    --color-ghost: #7b62a3;
-    --color-dark: #333333;
-    --color-ice: #51c4e7;
-    --color-steel: #95aaaa;
-    --color-fairy: #fdb9e9;
-    --color-dragon: #f16e57;
-    --color-flying: #e6e6e6;
+    font-size: 16px;
 }
+.Grass{
+    background-color: #9bcc50;
+}
+.Fire{
+    background-color: #fd7d24;
+}
+.Water{
+    background-color: #4592c4;
+}
+.Bug{
+    background-color: #729f3f;
+}
+.Normal{
+    background-color: #a4acaf;
+}
+.Poison{
+    background-color: #b97fc9;
+}
+.Electric{
+    background-color: #eed535;
+}
+.Ground{
+    background-color: #625814;
+}
+.Fighting{
+    background-color: #d56723;
+}
+.Psychic{
+    background-color: #f366b9;
+}
+.Rock{
+    background-color: #5b5b5b;
+}
+.Ghost{
+    background-color: #7b62a3;
+}
+.Dark{
+    background-color: #707070;
+}
+.Ice{
+    background-color: #51c4e7;
+}
+.Steel{
+    background-color: #95aaaa;
+}
+.Fairy{
+    background-color: #fdb9e9;
+}
+.Dragon{
+    background-color: #f16e57;
+}
+.Flying{
+    background-color: #bdb9b8;
+}
+
 header{
     position: fixed;
     top: 0;
+    left: 0;
     background-color: antiquewhite;
     width: 100vw;
     height: 60px;
@@ -33,7 +72,12 @@ header{
     flex-direction: row;
     align-items: center;
     gap: 20px;
-    padding-left: 50px;
+    z-index: 1;
+}
+header img{
+    margin-left: 20px;
+    width: 50px;
+    height: 50px;
 }
 main{
     width: 100vw;
@@ -41,21 +85,29 @@ main{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    position: relative;
 }
 section{
     margin-top: 70px;
+    margin-bottom: 40px;
+    width: 95%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
+    overflow-x: hidden;
 }
 footer{
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
+    left: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     width: 100vw;
+    height: 30px;
     background-color: antiquewhite;
 }
+

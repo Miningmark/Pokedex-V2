@@ -1,1 +1,31 @@
 @import url("./general.css");
+
+
+.showPokemonStats{
+    width: 300px;
+    height: 400px;
+    position: fixed;
+    left: calc((100vw - 300px) / 2);
+    bottom: calc((100vh - 400px) / 2);
+    background-color: aqua;
+    display: none;
+}
+
+
+.pokemonPreviewCard{
+    width: 155px;
+    height: 155px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 5px;
+    gap: 5px;
+}
+.pokemonImage{
+    width: 100px;
+    height: 100px;
+}
+

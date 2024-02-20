@@ -123,7 +123,7 @@ function renderPreviewCard(id){
     previewCointainer.innerHTML += (`
         <div class="pokemonPreviewCard ${pokemons[id].type}" id="pokemonPreviewCard${id}">
             <h1 class="pokemonName">${pokemons[id].name}</h1>
-            <h3 class="pokemonElement">${pokemons[id].type}</h3>
+            <h4 class="pokemonElement">${pokemons[id].type}</h4>
             <img class="pokemonImage" src="${pokemons[id].img}">  
         </div>
     `);

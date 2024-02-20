@@ -80,7 +80,7 @@ header img{
     height: 50px;
 }
 main{
-    width: 100vw;
+    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

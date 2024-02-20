@@ -1,8 +1,51 @@
 const url = "https://pokeapi.co/api/v2/pokemon?limit=10&offset="
 
-const previewCointainer = document.querySelector('.previewAllPokemons');
+const searchButton = document.getElementById("searchButton");
+const searchbar = document.querySelector(".searchbar");
+const serachInput = document.getElementById("searchInput");
+const previewCointainer = document.getElementById('previewAll');
+const searchCointainer = document.getElementById('previewSearch');
+
+
 const MAX_PARALLEL_REQUESTS = 10; // Anzahl der maximal parallelen Fetch-Vorgänge
 let currentRequests = 0; // Zählt die laufenden Fetch-Vorgänge
+
+
+searchButton.addEventListener("click", (event) => {
+    searchbar.classList.toggle("hide");
+    if(searchbar.classList.contains("hide")){
+        previewCointainer.classList.remove("hide");
+        searchCointainer.classList.add("hide");
+    }else{
+        serachInput.value = "";
+        serachInput.focus();
+    }
+});
+
+serachInput.addEventListener("input", (event) => {
+    const inputText = event.target.value.toLowerCase();
+    //console.log(inputText);
+    if(inputText.length > 0){
+        previewCointainer.classList.add("hide");
+        searchCointainer.classList.remove("hide");
+        const output = pokemons.filter((pokemon) => pokemon.name.toLowerCase().includes(inputText));
+        //console.log(output);
+        searchCointainer.innerHTML = "";
+        console.log("length", output.length);
+        if(output.length != 0){
+            output.forEach((element) => {
+                //console.log(pokemons.findIndex(pokemon => pokemon.name === element.name));
+                renderSeachCard(pokemons.findIndex(pokemon => pokemon.name === element.name));
+            });
+        }else{
+            searchCointainer. innerHTML = `<p id="searchError">No matches found for ${inputText} !</p>`
+        }
+    }else{
+        previewCointainer.classList.remove("hide");
+        searchCointainer.classList.add("hide");
+    }
+});
+
 
 let pokemons = [];
 let maxHP = 0;
@@ -12,7 +55,7 @@ let maxSpecialAttack = 0;
 let maxSpecialDefense = 0;
 let maxSpeed = 0;
 
-for(let i = 0; i < 16; i++){
+for(let i = 0; i < 16; i++){                //max 130
     await fetchData(url + (i * 10));
 }
 /*
@@ -67,11 +110,9 @@ async function fetchData(newURL){
     json.results.forEach(element => {
         pokemons.push(element);
     });
-    //console.log(pokemons);
 }
 
-console.log(pokemons);
-
+//console.log(pokemons);
 
 async function fetchPokemonStats(id){
     const response = await fetch(pokemons[id].url);
@@ -101,7 +142,6 @@ async function fetchPokemonStats(id){
     pokemons[id].weight = json.weight/10,
     pokemons[id].img = imageSelectNew(json);
     //console.log(pokemons[id]);
-
 }
 
 function firstLetterUpperCase(string) {
@@ -121,6 +161,15 @@ function imageSelectNew(data){
 
 function renderPreviewCard(id){
     previewCointainer.innerHTML += (`
+        <div class="pokemonPreviewCard ${pokemons[id].type}" id="pokemonPreviewCard${id}">
+            <h1 class="pokemonName">${pokemons[id].name}</h1>
+            <h4 class="pokemonElement">${pokemons[id].type}</h4>
+            <img class="pokemonImage" src="${pokemons[id].img}">  
+        </div>
+    `);
+}
+function renderSeachCard(id){
+    searchCointainer.innerHTML += (`
         <div class="pokemonPreviewCard ${pokemons[id].type}" id="pokemonPreviewCard${id}">
             <h1 class="pokemonName">${pokemons[id].name}</h1>
             <h4 class="pokemonElement">${pokemons[id].type}</h4>

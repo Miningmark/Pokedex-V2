@@ -12,13 +12,17 @@
     <header>
         <img src="./assets/images/Pokeball.png" alt="Pokeball">
         <h1>Pokedex V2</h1>
+        <button type="button" id="searchButton"></button>
+        <div class="searchbar hide">
+            <input type="text" name="searchText" id="searchInput">
+        </div>
     </header>
     <main>
         <div class="showPokemonStats">
 
         </div>
-        <section class="previewAllPokemons">
-            
+        <section class="previewAllPokemons" id="previewAll"></section>
+        <section class="previewAllPokemons hide" id="previewSearch">
         </section>
     </main>
     <footer>

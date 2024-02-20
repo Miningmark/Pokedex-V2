@@ -17,66 +17,68 @@
             <input type="text" name="searchText" id="searchInput">
         </div>
     </header>
-    <main>
-        <div class="showPokemonStats">
-            <h2>Name</h2>
-            <h3>Stats</h3>
-            <div class="statBarContainer">
-                <div class="statBarWrapper">
-                    <div class="statBar">
-                        <div class="statBarContent hpValue">
+    <main >
+        <div class="showPokemonStatsBackground hide">
+            <div class="showPokemonStats">
+                <h2 class="showPokemonName">Name</h2>
+                <h3>Stats</h3>
+                <div class="statBarContainer">
+                    <div class="statBarWrapper">
+                        <div class="statBar hpColor">
+                            <div class="statBarContent hpValue">
+                            </div>
                         </div>
+                        <p>HP</p>
                     </div>
-                    <p>HP</p>
-                </div>
-                <div class="statBarWrapper">
-                    <div class="statBar">
-                        <div class="statBarContent attackValue">
+                    <div class="statBarWrapper">
+                        <div class="statBar attackColor">
+                            <div class="statBarContent attackValue">
+                            </div>
                         </div>
+                        <p>Attack</p>
                     </div>
-                    <p>Attack</p>
-                </div>
-                <div class="statBarWrapper">
-                    <div class="statBar">
-                        <div class="statBarContent defenseValue">
+                    <div class="statBarWrapper">
+                        <div class="statBar defenseColor">
+                            <div class="statBarContent defenseValue">
+                            </div>
                         </div>
+                        <p>Defense</p>
                     </div>
-                    <p>Defense</p>
-                </div>
-                <div class="statBarWrapper">
-                    <div class="statBar">
-                        <div class="statBarContent specialAttackValue">
+                    <div class="statBarWrapper">
+                        <div class="statBar specialAttackColor">
+                            <div class="statBarContent specialAttackValue">
+                            </div>
                         </div>
+                        <p>Special Attak</p>
                     </div>
-                    <p>Special Attak</p>
-                </div>
-                <div class="statBarWrapper">
-                    <div class="statBar">
-                        <div class="statBarContent specialDefenseValue">
+                    <div class="statBarWrapper">
+                        <div class="statBar specialDefenseColor">
+                            <div class="statBarContent specialDefenseValue">
+                            </div>
                         </div>
+                        <p>Special Defense</p>
                     </div>
-                    <p>Special Defense</p>
-                </div>
-                <div class="statBarWrapper">
-                    <div class="statBar">
-                        <div class="statBarContent speedValue">
+                    <div class="statBarWrapper">
+                        <div class="statBar speedColor">
+                            <div class="statBarContent speedValue">
+                            </div>
                         </div>
+                        <p>Speed</p>
                     </div>
-                    <p>Speed</p>
                 </div>
-            </div>
-            <div class="physicalStatsContainer">
-                <div>
-                    <p>Type: <span></span></p>
-                    <p>Height: <span></span>m</p>
-                    <p>Weight: <span></span>Kg</p>
-                </div>
-                <div>
-                    <img class="pokemonStatsImage" src="./assets/images/Pokeball.png" alt="Image from Pokemon">
+                <div class="physicalStatsContainer">
+                    <div class="physicalStatsContainerValue">
+                        <p>Type: <span class="showPokemonType"></span></p>
+                        <p>Height: <span class="showPokemonHeight"></span>m</p>
+                        <p>Weight: <span class="showPokemonWeight"></span>Kg</p>
+                    </div>
+                    <div>
+                        <img class="pokemonStatsImage" src="./assets/images/Pokeball.png" alt="Image from Pokemon">
+                    </div>
                 </div>
             </div>
         </div>
-        <section class="previewAllPokemons" id="previewAll"></section>
+        <section class="previewAllPokemons " id="previewAll"></section>
         <section class="previewAllPokemons hide" id="previewSearch">
         </section>
     </main>

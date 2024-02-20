@@ -5,6 +5,7 @@ const searchbar = document.querySelector(".searchbar");
 const serachInput = document.getElementById("searchInput");
 const previewCointainer = document.getElementById('previewAll');
 const searchCointainer = document.getElementById('previewSearch');
+const pokemonStatsBackground = document.querySelector(".showPokemonStatsBackground");
 
 
 const MAX_PARALLEL_REQUESTS = 10; // Anzahl der maximal parallelen Fetch-Vorgänge
@@ -46,6 +47,29 @@ serachInput.addEventListener("input", (event) => {
     }
 });
 
+previewCointainer.addEventListener("click", handlePokemonClick);
+searchCointainer.addEventListener("click", handlePokemonClick);
+
+function handlePokemonClick(event){
+    const clickedElement = event.target.closest('.pokemonPreviewCard');
+    if (clickedElement) {
+        const id = clickedElement.id.replace("pokemonPreviewCard", "");
+        console.log("Clicked Pokemon ID:", id);
+        showPokemonStats(id);
+    }
+}
+
+pokemonStatsBackground.addEventListener("click", handleBackgroundClick);
+
+function handleBackgroundClick(event){
+    const clickedElement = event.target.closest('.showPokemonStatsBackground');
+    if(clickedElement){
+        document.querySelector(".showPokemonStatsBackground").classList.toggle("hide");
+        //previewCointainer.classList.toggle("noScroll");
+    }
+    
+}
+
 
 let pokemons = [];
 let maxHP = 0;
@@ -72,7 +96,6 @@ async function fetchDataAndRender() {
   const fetchQueue = pokemons.map(async (pokemon, index) => {
     await processFetch(index);
   });
-
   // Führen Sie die Fetch-Vorgänge aus (bis zur maximalen Anzahl gleichzeitig)
   await Promise.all(fetchQueue.splice(0, MAX_PARALLEL_REQUESTS));
 }
@@ -83,16 +106,12 @@ async function processFetch(index) {
     // Warten Sie, bis ein Fetch-Vorgang abgeschlossen ist
     await delay(100);
   }
-
   // Inkrementieren Sie die Anzahl der laufenden Fetch-Vorgänge
   currentRequests++;
-
   // Führen Sie den Fetch-Vorgang durch
   await fetchPokemonStats(index);
-
   // Dekrementieren Sie die Anzahl der laufenden Fetch-Vorgänge
   currentRequests--;
-
   // Rendern Sie die Preview-Karte
   renderPreviewCard(index);
 }
@@ -176,4 +195,23 @@ function renderSeachCard(id){
             <img class="pokemonImage" src="${pokemons[id].img}">  
         </div>
     `);
+}
+
+function showPokemonStats(id){
+    document.querySelector(".showPokemonName").textContent = pokemons[id].name;
+    document.querySelector(".showPokemonType").textContent = pokemons[id].type;
+    document.querySelector(".showPokemonHeight").textContent = pokemons[id].height;
+    document.querySelector(".showPokemonWeight").textContent = pokemons[id].weight;
+    document.querySelector(".pokemonStatsImage").src = pokemons[id].img;
+    document.querySelector(".showPokemonStats").classList = "showPokemonStats";
+    document.querySelector(".showPokemonStats").classList.add(pokemons[id].type);
+
+    document.querySelector(".hpValue").style.height = `${100 - (pokemons[id].hp / maxHP * 100)}%`;
+    document.querySelector(".attackValue").style.height = `${100 - (pokemons[id].attack / maxAttack * 100)}%`;
+    document.querySelector(".defenseValue").style.height = `${100 - (pokemons[id].defense / maxDefense * 100)}%`;
+    document.querySelector(".specialAttackValue").style.height = `${100 - (pokemons[id].specialAttack / maxSpecialAttack * 100)}%`;
+    document.querySelector(".specialDefenseValue").style.height = `${100 - (pokemons[id].specialDefense / maxSpecialDefense * 100)}%`;
+    document.querySelector(".speedValue").style.height = `${100 - (pokemons[id].speed / maxSpeed * 100)}%`;
+
+    document.querySelector(".showPokemonStatsBackground").classList.toggle("hide");
 }

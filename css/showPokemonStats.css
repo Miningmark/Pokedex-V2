@@ -1,10 +1,18 @@
+.showPokemonStatsBackground{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(101, 101, 101, 0.667);
+    z-index: 3;
+}
 .showPokemonStats{
-    width: 300px;
-    height: 400px;
+    width: 320px;
+    height: 420px;
     position: fixed;
     left: calc((100vw - 320px) / 2);
-    bottom: calc((100vh - 400px) / 2);
-    background-color: aqua;
+    bottom: calc((100vh - 420px) / 2);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,39 +35,48 @@
 .statBar{
     position: relative;
     height: 120px;
-    width: 40px;
-    border-radius: 15px;
-    background-color: white;
-}
-.statBarContent{
-    position: absolute;
-    bottom: 0;
-    width: calc(100% - 6px);
-    border-radius: 0 0 15px 15px;
+    width: 36px;
+    border-radius: 10px;
     border: 3px solid white;
 }
 .hpValue{
-    height: 5%;
-    background-color: rgb(2, 189, 18);
+    height: 10%;
 }
 .attackValue{
-    height: 5%;
-    background-color:  rgb(255, 27, 27);
+    height: 10%;
 }
 .defenseValue{
-    height: 5%;
-    background-color: rgb(255, 226, 3);
+    height: 10%;
 }
 .specialAttackValue{
-    height: 5%;
-    background-color: rgb(180, 0, 0);
+    height: 10%;
 }
 .specialDefenseValue{
-    height: 5%;
-    background-color: rgb(212, 170, 0);
+    height: 10%;
 }
 .speedValue{
-    height: 5%;
+    height: 10%;
+}
+.statBarContent{
+    border-radius: 5px 5px 0 0;
+    background-color: white;
+}
+.hpColor{
+    background-color: rgb(2, 189, 18);
+}
+.attackColor{
+    background-color:  rgb(255, 27, 27);
+}
+.defenseColor{
+    background-color: rgb(255, 226, 3);
+}
+.specialAttackColor{
+    background-color: rgb(180, 0, 0);
+}
+.specialDefenseColor{
+    background-color: rgb(212, 170, 0);
+}
+.speedColor{
     background-color: rgb(64, 174, 242);
 }
 .physicalStatsContainer{
@@ -68,7 +85,46 @@
     align-items: center;
     gap: 20px;
 }
+.physicalStatsContainerValue{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .pokemonStatsImage{
     width: 150px;
     height: 150px;
+}
+
+@media only screen and (min-width: 800px){
+    .showPokemonStats{
+        width: 400px;
+        height: 550px;
+        left: calc((100vw - 400px) / 2);
+        bottom: calc((100vh - 550px) / 2);
+    }
+    .showPokemonStats h2{
+        font-size: 2.2rem;
+        padding-bottom: 20px;
+    }
+    .statBarContainer{
+        display: flex;
+        gap: 10px;
+        margin: 20px;
+    }
+    .statBarWrapper p{
+        font-size: 1.1rem;
+    }
+    .statBar{
+        height: 150px;
+        width: 48px;
+        border-radius: 10px;
+        border: 3px solid white;
+    }
+    .physicalStatsContainer p{
+        font-size: 1.2rem;
+    }
+    .pokemonStatsImage{
+        width: 200px;
+        height: 200px;
+    }
 }

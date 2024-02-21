@@ -8,10 +8,10 @@ The Pokedex website is a visualization of a Pokemon database in which all Pokemo
 ## 2.Layout
 
 ### Desktop Version
-[]()
+![Desktop Version](./Doku/Pokedex%20Desktop%20Version.png)
 
 ### Mobile Version
-[]()
+![Mobile Version](./Doku/Pokedex%20Mobile%20Version.png)
 
 ## 3.More information and technical structure
 
@@ -20,5 +20,5 @@ The website receives the data from https://pokeapi.co/api/v2/. From there, the p
 
 ## 4.Finished website
 
-[]()
-[]()
+![Desktop Version]()
+![Mobile Version]()

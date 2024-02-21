@@ -25,17 +25,14 @@ searchButton.addEventListener("click", (event) => {
 
 serachInput.addEventListener("input", (event) => {
     const inputText = event.target.value.toLowerCase();
-    //console.log(inputText);
     if(inputText.length > 0){
         previewCointainer.classList.add("hide");
         searchCointainer.classList.remove("hide");
         const output = pokemons.filter((pokemon) => pokemon.name.toLowerCase().includes(inputText));
-        //console.log(output);
         searchCointainer.innerHTML = "";
         console.log("length", output.length);
         if(output.length != 0){
             output.forEach((element) => {
-                //console.log(pokemons.findIndex(pokemon => pokemon.name === element.name));
                 renderSeachCard(pokemons.findIndex(pokemon => pokemon.name === element.name));
             });
         }else{
@@ -70,7 +67,6 @@ function handleBackgroundClick(event){
     
 }
 
-
 let pokemons = [];
 let maxHP = 0;
 let maxAttack = 0;
@@ -82,12 +78,6 @@ let maxSpeed = 0;
 for(let i = 0; i < 16; i++){                //max 130
     await fetchData(url + (i * 10));
 }
-/*
-for(let i = 0; i < pokemons.length; i++){
-    await fetchPokemonStats(i);
-    renderPreviewCard(i);
-}
-*/
 fetchDataAndRender();
 
 
@@ -131,12 +121,9 @@ async function fetchData(newURL){
     });
 }
 
-//console.log(pokemons);
-
 async function fetchPokemonStats(id){
     const response = await fetch(pokemons[id].url);
     const json = await response.json();
-    //console.log(json);
     const hp = json.stats[0].base_stat;
     const attack = json.stats[1].base_stat;
     const defense = json.stats[2].base_stat;
@@ -198,6 +185,7 @@ function renderSeachCard(id){
 }
 
 function showPokemonStats(id){
+
     document.querySelector(".showPokemonName").textContent = pokemons[id].name;
     document.querySelector(".showPokemonType").textContent = pokemons[id].type;
     document.querySelector(".showPokemonHeight").textContent = pokemons[id].height;

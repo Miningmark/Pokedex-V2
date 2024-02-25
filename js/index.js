@@ -1,4 +1,4 @@
-const url = "https://pokeapi.co/api/v2/pokemon?limit=10&offset="
+const url = "https://pokeapi.co/api/v2/pokemon"
 
 const searchButton = document.getElementById("searchButton");
 const searchbar = document.querySelector(".searchbar");
@@ -10,6 +10,8 @@ const pokemonStatsBackground = document.querySelector(".showPokemonStatsBackgrou
 
 const MAX_PARALLEL_REQUESTS = 10; // Anzahl der maximal parallelen Fetch-Vorgänge
 let currentRequests = 0; // Zählt die laufenden Fetch-Vorgänge
+
+let maxPokemonLoads = 151
 
 
 searchButton.addEventListener("click", (event) => {
@@ -75,9 +77,12 @@ let maxSpecialAttack = 0;
 let maxSpecialDefense = 0;
 let maxSpeed = 0;
 
+/*
 for(let i = 0; i < 16; i++){                //max 130
-    await fetchData(url + (i * 10));
+    await fetchData(url + maxPokemonLoads);
 }
+*/
+await fetchData(`${url}?limit=${maxPokemonLoads}&offset=0`);
 fetchDataAndRender();
 
 
@@ -122,6 +127,7 @@ async function fetchData(newURL){
 }
 
 async function fetchPokemonStats(id){
+    loadingScreenText(id);
     const response = await fetch(pokemons[id].url);
     const json = await response.json();
     const hp = json.stats[0].base_stat;
@@ -202,5 +208,13 @@ function showPokemonStats(id){
     document.querySelector(".speedValue").style.height = `${100 - (pokemons[id].speed / maxSpeed * 100)}%`;
 
     document.querySelector(".showPokemonStatsBackground").classList.toggle("hide");
+}
+
+function loadingScreenText(id){
+    document.getElementById("loadingName").textContent = pokemons[id].name;
+    if(id == maxPokemonLoads - 1){
+        document.getElementById("loadScreen").classList.toggle("hide");
+        console.log("Test");
+    }
 }
 

@@ -203,3 +203,4 @@ function showPokemonStats(id){
 
     document.querySelector(".showPokemonStatsBackground").classList.toggle("hide");
 }
+

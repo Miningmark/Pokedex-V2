@@ -78,6 +78,11 @@ let maxSpeed = 0;
 for(let i = 0; i < 16; i++){                //max 130
     await fetchData(url + (i * 10));
 }
+
+
+
+
+
 fetchDataAndRender();
 
 
@@ -137,6 +142,7 @@ async function fetchPokemonStats(id){
     maxSpecialAttack = Math.max(maxSpecialAttack, specialAttack);
     maxSpecialDefense = Math.max(maxSpecialDefense, specialDefense);
     maxSpeed = Math.max(maxSpeed,speed);
+    //console.log(hp)
     pokemons[id].hp = hp;
     pokemons[id].attack = attack;
     pokemons[id].defense = defense;
@@ -144,9 +150,8 @@ async function fetchPokemonStats(id){
     pokemons[id].specialDefense = specialDefense;
     pokemons[id].speed = speed;
     pokemons[id].type = firstLetterUpperCase(json.types[0].type.name);
-    pokemons[id].height = json.height/10,
-    pokemons[id].weight = json.weight/10,
-    pokemons[id].img = imageSelectNew(json);
+    pokemons[id].height = json.height/10;
+    pokemons[id].weight = json.weight/10;
     //console.log(pokemons[id]);
 }
 
@@ -154,23 +159,13 @@ function firstLetterUpperCase(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function imageSelectNew(data){
-    let img = data.sprites.other.dream_world.front_default;
-    if(img === null){
-        img = data.sprites.front_default;
-    }
-    if(img === null){
-        img = "../assets/images/Pokeball.png";
-    }
-    return img;
-}
 
-function renderPreviewCard(id){
+function renderPreviewCard(id){         // <div class="pokemonPreviewCard ${pokemons[id].type}" id="pokemonPreviewCard${id}"> 
     previewCointainer.innerHTML += (`
-        <div class="pokemonPreviewCard ${pokemons[id].type}" id="pokemonPreviewCard${id}">
+        <div class="pokemonPreviewCard " id="pokemonPreviewCard${id}">      
             <h1 class="pokemonName">${pokemons[id].name}</h1>
             <h4 class="pokemonElement">${pokemons[id].type}</h4>
-            <img class="pokemonImage" src="${pokemons[id].img}">  
+            <img class="pokemonImage" src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${id+1}.svg" alt="${pokemons[id].name}">  
         </div>
     `);
 }
@@ -179,7 +174,7 @@ function renderSeachCard(id){
         <div class="pokemonPreviewCard ${pokemons[id].type}" id="pokemonPreviewCard${id}">
             <h1 class="pokemonName">${pokemons[id].name}</h1>
             <h4 class="pokemonElement">${pokemons[id].type}</h4>
-            <img class="pokemonImage" src="${pokemons[id].img}">  
+            <img class="pokemonImage" src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${id+1}.svg" alt="${pokemons[id].name}">   
         </div>
     `);
 }

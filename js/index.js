@@ -82,7 +82,7 @@ for(let i = 0; i < 16; i++){                //max 130
     await fetchData(url + maxPokemonLoads);
 }
 */
-await fetchData(`${url}?limit=${maxPokemonLoads}&offset=0`);
+await fetchData(`${url}?limit=${maxPokemonLoads}`);
 fetchDataAndRender();
 
 
@@ -214,6 +214,7 @@ function loadingScreenText(id){
     document.getElementById("loadingName").textContent = pokemons[id].name;
     if(id == maxPokemonLoads - 1){
         document.getElementById("loadScreen").classList.toggle("hide");
+        previewCointainer.classList.toggle("hide");
         console.log("Test");
     }
 }

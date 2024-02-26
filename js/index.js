@@ -1,4 +1,4 @@
-const url = "https://pokeapi.co/api/v2/pokemon?limit=10&offset="
+const url = "https://pokeapi.co/api/v2/pokemon"
 
 const searchButton = document.getElementById("searchButton");
 const searchbar = document.querySelector(".searchbar");
@@ -10,6 +10,8 @@ const pokemonStatsBackground = document.querySelector(".showPokemonStatsBackgrou
 
 const MAX_PARALLEL_REQUESTS = 10; // Anzahl der maximal parallelen Fetch-Vorgänge
 let currentRequests = 0; // Zählt die laufenden Fetch-Vorgänge
+
+let maxPokemonLoads = 151
 
 
 searchButton.addEventListener("click", (event) => {
@@ -74,16 +76,21 @@ let maxDefense = 0;
 let maxSpecialAttack = 0;
 let maxSpecialDefense = 0;
 let maxSpeed = 0;
-
+/*
 for(let i = 0; i < 16; i++){                //max 130
     await fetchData(url + (i * 10));
+}
+*/
+await fetchData(`${url}?limit=${maxPokemonLoads}`);
+
+for(let i = 0; i < pokemons.length; i++){
+    renderPreviewCard(i);
 }
 
 
 
 
-
-fetchDataAndRender();
+//fetchDataAndRender();
 
 
 async function fetchDataAndRender() {
@@ -164,7 +171,7 @@ function renderPreviewCard(id){         // <div class="pokemonPreviewCard ${poke
     previewCointainer.innerHTML += (`
         <div class="pokemonPreviewCard " id="pokemonPreviewCard${id}">      
             <h1 class="pokemonName">${pokemons[id].name}</h1>
-            <h4 class="pokemonElement">${pokemons[id].type}</h4>
+            <h5 class="pokemonElement">#${id+1}</h5>
             <img class="pokemonImage" src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${id+1}.svg" alt="${pokemons[id].name}">  
         </div>
     `);

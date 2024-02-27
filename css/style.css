@@ -11,3 +11,8 @@
 .noScroll{
     overflow: hidden;
 }
+
+.titelbox{
+    display: flex;
+    padding-top: 10px;
+}

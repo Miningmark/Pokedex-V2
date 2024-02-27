@@ -11,9 +11,9 @@ const pokemonStatsBackground = document.querySelector(".showPokemonStatsBackgrou
 const MAX_PARALLEL_REQUESTS = 10; // Anzahl der maximal parallelen Fetch-Vorgänge
 let currentRequests = 0; // Zählt die laufenden Fetch-Vorgänge
 
-let maxPokemonLoads = 151
+let maxPokemonLoads = 151;
 
-
+/*
 searchButton.addEventListener("click", (event) => {
     searchbar.classList.toggle("hide");
     if(searchbar.classList.contains("hide")){
@@ -46,6 +46,8 @@ serachInput.addEventListener("input", (event) => {
     }
 });
 
+
+
 previewCointainer.addEventListener("click", handlePokemonClick);
 searchCointainer.addEventListener("click", handlePokemonClick);
 
@@ -68,6 +70,8 @@ function handleBackgroundClick(event){
     }
     
 }
+
+*/
 
 let pokemons = [];
 let maxHP = 0;

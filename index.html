@@ -16,14 +16,74 @@
                 <h1> Pokedex V2</h1>
             </div>
             <div class="searchbar">
-                <input type="text" name="searchText" id="searchInput">
+                <input type="text" name="searchText" id="searchInput" placeholder="Search">
                 <button type="button" id="searchCancel"></button>
             </div>
         </header>
         <section>
+            <div class="showPokemonStatsBackground hide">
+                <div class="showPokemonStats">
+                    <h2 class="showPokemonName">Name</h2>
+                    <h3>Stats</h3>
+                    <div class="statBarContainer">
+                        <div class="statBarWrapper">
+                            <div class="statBar hpColor">
+                                <div class="statBarContent hpValue">
+                                </div>
+                            </div>
+                            <p>HP</p>
+                        </div>
+                        <div class="statBarWrapper">
+                            <div class="statBar attackColor">
+                                <div class="statBarContent attackValue">
+                                </div>
+                            </div>
+                            <p>Attack</p>
+                        </div>
+                        <div class="statBarWrapper">
+                            <div class="statBar defenseColor">
+                                <div class="statBarContent defenseValue">
+                                </div>
+                            </div>
+                            <p>Defense</p>
+                        </div>
+                        <div class="statBarWrapper">
+                            <div class="statBar specialAttackColor">
+                                <div class="statBarContent specialAttackValue">
+                                </div>
+                            </div>
+                            <p>Special Attak</p>
+                        </div>
+                        <div class="statBarWrapper">
+                            <div class="statBar specialDefenseColor">
+                                <div class="statBarContent specialDefenseValue">
+                                </div>
+                            </div>
+                            <p>Special Defense</p>
+                        </div>
+                        <div class="statBarWrapper">
+                            <div class="statBar speedColor">
+                                <div class="statBarContent speedValue">
+                                </div>
+                            </div>
+                            <p>Speed</p>
+                        </div>
+                    </div>
+                    <div class="physicalStatsContainer">
+                        <div class="physicalStatsContainerValue">
+                            <p>Type: <span class="showPokemonType"></span></p>
+                            <p>Height: <span class="showPokemonHeight"></span>m</p>
+                            <p>Weight: <span class="showPokemonWeight"></span>Kg</p>
+                        </div>
+                        <div>
+                            <img class="pokemonStatsImage" src="./assets/images/Pokeball.png" alt="Image from Pokemon">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="previewAllPokemons " id="previewAll"></div>
-            <div class="previewAllPokemons hide" id="previewSearch">
-        </div>
+            <div class="previewAllPokemons hide" id="previewSearch"></div>
+         </section>   
         <footer>created by Miningmark</footer>
     </main>
 

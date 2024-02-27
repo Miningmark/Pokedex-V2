@@ -77,15 +77,12 @@ section{
     background-color: whitesmoke;
     box-shadow: black;
     border-radius: 0.75rem;
-    min-height: calc(85.5% - 1rem);
+    min-height: calc(80% - 30px);
     width: calc(100% - 1rem);
-    max-height: 100px;
+    
     overflow-y: auto;
 }
 footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

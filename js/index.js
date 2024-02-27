@@ -44,7 +44,6 @@ function handlePokemonClick(event){
     const clickedElement = event.target.closest('.pokemonPreviewCard');
     if (clickedElement) {
         const id = Number(clickedElement.id.replace("pokemonPreviewCard", ""));
-        console.log("Clicked Pokemon ID:", id);
         showPokemonStats(id);
     }
 }
@@ -77,8 +76,7 @@ function firstLetterUpperCase(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function renderPreviewCard(id){ 
-    console.log("Preview", id);        
+function renderPreviewCard(id){       
     previewCointainer.innerHTML += (`
         <div class="pokemonPreviewCard " id="pokemonPreviewCard${id}">      
             <h1 class="pokemonName">${pokemons[id].name}</h1>
@@ -89,7 +87,6 @@ function renderPreviewCard(id){
 }
 
 function renderSeachCard(id){
-    console.log("Search", id);
     searchCointainer.innerHTML += (`
     <div class="pokemonPreviewCard " id="pokemonPreviewCard${id}">      
         <h1 class="pokemonName">${pokemons[id].name}</h1>
@@ -112,12 +109,12 @@ async function showPokemonStats(id){
     document.querySelector(".showPokemonStats").classList = "showPokemonStats";
     document.querySelector(".showPokemonStats").classList.add(firstLetterUpperCase(json.types[0].type.name));
 
-    document.querySelector(".hpValue").style.height = `${100 - (json.stats[0].base_stat / 200 * 100)}%`;
-    document.querySelector(".attackValue").style.height = `${100 - (json.stats[1].base_stat / 200 * 100)}%`;
-    document.querySelector(".defenseValue").style.height = `${100 - (json.stats[2].base_stat / 200 * 100)}%`;
-    document.querySelector(".specialAttackValue").style.height = `${100 - (json.stats[3].base_stat / 200 * 100)}%`;
-    document.querySelector(".specialDefenseValue").style.height = `${100 - (json.stats[4].base_stat / 200 * 100)}%`;
-    document.querySelector(".speedValue").style.height = `${100 - (json.stats[5].base_stat / 200 * 100)}%`;
+    document.querySelector(".hpValue").style.height = `${100 - (json.stats[0].base_stat / 150 * 100)}%`;
+    document.querySelector(".attackValue").style.height = `${100 - (json.stats[1].base_stat / 150 * 100)}%`;
+    document.querySelector(".defenseValue").style.height = `${100 - (json.stats[2].base_stat / 150 * 100)}%`;
+    document.querySelector(".specialAttackValue").style.height = `${100 - (json.stats[3].base_stat / 150 * 100)}%`;
+    document.querySelector(".specialDefenseValue").style.height = `${100 - (json.stats[4].base_stat / 150 * 100)}%`;
+    document.querySelector(".speedValue").style.height = `${100 - (json.stats[5].base_stat / 150 * 100)}%`;
 
     document.querySelector(".showPokemonStatsBackground").classList.toggle("hide");
 }

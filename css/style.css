@@ -1,7 +1,7 @@
 @import url("./general.css");
 @import url("./showPokemonStats.css");
 @import url("./previewCard.css");
-@import url("./search.css");
+@import url("./heading.css");
 
 
 .hide{
@@ -10,9 +10,4 @@
 
 .noScroll{
     overflow: hidden;
-}
-
-.titelbox{
-    display: flex;
-    padding-top: 10px;
 }

@@ -62,15 +62,6 @@
     background-color: #bdb9b8;
 }
 
-header{
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-}
-header img{
-    width: 36px;
-    height: 36px;
-}
 main{
     margin: 0;
     padding: 0;

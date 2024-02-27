@@ -79,7 +79,7 @@ function firstLetterUpperCase(string) {
 function renderPreviewCard(id){       
     previewCointainer.innerHTML += (`
         <div class="pokemonPreviewCard " id="pokemonPreviewCard${id}">      
-            <h1 class="pokemonName">${pokemons[id].name}</h1>
+            <h1 class="pokemonName">${firstLetterUpperCase(pokemons[id].name)}</h1>
             <h5 class="pokemonElement">#${id+1}</h5>
             <img class="pokemonImage" src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${id+1}.svg" alt="${pokemons[id].name}">  
         </div>
@@ -89,7 +89,7 @@ function renderPreviewCard(id){
 function renderSeachCard(id){
     searchCointainer.innerHTML += (`
     <div class="pokemonPreviewCard " id="pokemonPreviewCard${id}">      
-        <h1 class="pokemonName">${pokemons[id].name}</h1>
+        <h1 class="pokemonName">${firstLetterUpperCase(pokemons[id].name)}</h1>
         <h5 class="pokemonElement">#${id+1}</h5>
         <img class="pokemonImage" src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${id+1}.svg" alt="${pokemons[id].name}">  
     </div>
@@ -100,7 +100,7 @@ async function showPokemonStats(id){
     const response = await fetch(url + "/" + (id+1));
     const json = await response.json();
 
-    document.querySelector(".showPokemonName").textContent = pokemons[id].name;
+    document.querySelector(".showPokemonName").textContent = firstLetterUpperCase(pokemons[id].name);
     document.querySelector(".showPokemonType").textContent = firstLetterUpperCase(json.types[0].type.name);
     document.querySelector(".showPokemonHeight").textContent = json.height/10;
     document.querySelector(".showPokemonWeight").textContent = json.weight/10;

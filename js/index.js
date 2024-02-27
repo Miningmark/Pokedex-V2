@@ -178,11 +178,11 @@ function renderPreviewCard(id){         // <div class="pokemonPreviewCard ${poke
 }
 function renderSeachCard(id){
     searchCointainer.innerHTML += (`
-        <div class="pokemonPreviewCard ${pokemons[id].type}" id="pokemonPreviewCard${id}">
-            <h1 class="pokemonName">${pokemons[id].name}</h1>
-            <h4 class="pokemonElement">${pokemons[id].type}</h4>
-            <img class="pokemonImage" src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${id+1}.svg" alt="${pokemons[id].name}">   
-        </div>
+    <div class="pokemonPreviewCard " id="pokemonPreviewCard${id}">      
+        <h1 class="pokemonName">${pokemons[id].name}</h1>
+        <h5 class="pokemonElement">#${id+1}</h5>
+        <img class="pokemonImage" src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${id+1}.svg" alt="${pokemons[id].name}">  
+    </div>
     `);
 }
 

@@ -63,8 +63,6 @@
 }
 
 main{
-    margin: 0;
-    padding: 0;
     background-color: #dc0a2d;
     height: 100vh;
     width: 100vw;
@@ -77,18 +75,19 @@ section{
     background-color: whitesmoke;
     box-shadow: black;
     border-radius: 0.75rem;
-    min-height: calc(80% - 30px);
+    min-height: calc(85% - 23px);
     width: calc(100% - 1rem);
     
     overflow-y: auto;
 }
 footer{
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     width: 100vw;
     height: 30px;
+}
+footer p{
+    margin-bottom: 5px;
 }
 .previewAllPokemons{
     display: flex;
@@ -96,6 +95,12 @@ footer{
     gap: 1rem;
     justify-content: center;
     padding: 0.5rem;
+}
+
+@media only screen and (min-width: 1000px) {
+    section{
+        width: calc(100% - 2rem);
+    }
 }
 
 

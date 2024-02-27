@@ -41,6 +41,7 @@ header img{
     display: flex;
     align-items: center;
 }
+
 #searchInput{
     font-size: 1.1rem;
     height: 30px;

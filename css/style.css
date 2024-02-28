@@ -1,13 +1,11 @@
 @import url("./general.css");
 @import url("./showPokemonStats.css");
 @import url("./previewCard.css");
-@import url("./search.css");
+@import url("./heading.css");
 
 
 .hide{
     display: none;
 }
 
-.noScroll{
-    overflow: hidden;
-}
+
